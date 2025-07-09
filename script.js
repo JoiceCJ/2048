@@ -33,7 +33,6 @@ function addRandomTile() {
     grid[row][col] = Math.random() < 0.9 ? 2 : 4;
 }
 
-// Render the grid (update tiles)
 function renderGrid() {
     gridContainer.innerHTML = '';
     for (let row = 0; row < 4; row++) {
@@ -51,24 +50,23 @@ function renderGrid() {
     scoreDisplay.innerText = score;
 }
 
-// Handle the tile movement logic (left, right, up, down)
 function slideTiles(direction) {
-    // Implement the movement logic here (I'll go over that next)
+
 }
 
-// Start the game
+
 initGame();
 function slideLeft() {
     for (let row = 0; row < 4; row++) {
-        let newRow = grid[row].filter(val => val !== 0); // Remove zeroes
+        let newRow = grid[row].filter(val => val !== 0); 
         for (let i = 0; i < newRow.length - 1; i++) {
             if (newRow[i] === newRow[i + 1]) {
-                newRow[i] *= 2; // Merge
+                newRow[i] *= 2; 
                 score += newRow[i];
-                newRow.splice(i + 1, 1); // Remove the merged tile
+                newRow.splice(i + 1, 1); 
             }
         }
-        // Add zeroes at the end of the row
+        
         while (newRow.length < 4) {
             newRow.push(0);
         }
@@ -90,7 +88,6 @@ function renderGrid() {
                 tile.innerText = tileValue;
             }
 
-            // Add an animation class if needed
             tile.classList.add("tile-moving");
             gridContainer.appendChild(tile);
         }
@@ -99,7 +96,7 @@ function renderGrid() {
 }
 
 function slideRight() {
-    // Reverse the grid, use slideLeft, then reverse back
+
     grid = grid.map(row => row.reverse());
     slideLeft();
     grid = grid.map(row => row.reverse());
@@ -108,7 +105,7 @@ function slideRight() {
 }
 
 function slideUp() {
-    // Transpose the grid, use slideLeft, then transpose back
+    
     grid = transpose(grid);
     slideLeft();
     grid = transpose(grid);
@@ -117,7 +114,7 @@ function slideUp() {
 }
 
 function slideDown() {
-    // Transpose the grid, use slideRight, then transpose back
+    
     grid = transpose(grid);
     slideRight();
     grid = transpose(grid);
@@ -125,12 +122,12 @@ function slideDown() {
     renderGrid();
 }
 
-// Transpose a 2D array (swap rows and columns)
+
 function transpose(arr) {
     return arr[0].map((_, i) => arr.map(row => row[i]));
 }
 
-//arrow keys
+
 document.addEventListener("keydown", function(event) {
     if (event.key === "ArrowLeft") {
         slideLeft();
@@ -143,7 +140,7 @@ document.addEventListener("keydown", function(event) {
     }
 });
 
-// Check for win condition
+
 function checkWin() {
     for (let row = 0; row < 4; row++) {
         for (let col = 0; col < 4; col++) {
@@ -154,9 +151,9 @@ function checkWin() {
     }
 }
 
-// Check for game over
+
 function checkGameOver() {
-    // If there are no empty cells and no valid moves, the game is over
+    
     let hasValidMove = false;
     for (let row = 0; row < 4; row++) {
         for (let col = 0; col < 4; col++) {
