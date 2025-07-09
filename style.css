@@ -1,11 +1,9 @@
-/* Basic reset */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Body and background */
 body {
     font-family: 'Arial', sans-serif;
     display: flex;
@@ -16,7 +14,6 @@ body {
     margin: 0;
 }
 
-/* Game container */
 #game-container {
     display: flex;
     flex-direction: column;
@@ -30,7 +27,6 @@ body {
     height: 600px;
 }
 
-/* Grid container */
 #grid-container {
     display: grid;
     grid-template-columns: repeat(4, 100px);
@@ -44,7 +40,6 @@ body {
     margin-bottom: 20px;
 }
 
-/* Tile styles */
 .tile {
     width: 100px;
     height: 100px;
@@ -60,7 +55,6 @@ body {
     transition: transform 0.2s ease, background-color 0.3s ease, opacity 0.3s ease;
 }
 
-/* Tile colors (added for different values) */
 .tile-2 { background-color: #eee4da; color: #776e65; }
 .tile-4 { background-color: #ede0c8; color: #776e65; }
 .tile-8 { background-color: #f2b179; color: #f9f6f2; }
@@ -73,7 +67,6 @@ body {
 .tile-1024 { background-color: #edc53f; color: #f9f6f2; }
 .tile-2048 { background-color: #edc22e; color: #f9f6f2; }
 
-/* Score container (centering the score and button) */
 #score-container {
     display: flex;
     flex-direction: column;
@@ -84,7 +77,6 @@ body {
     font-weight: bold;
 }
 
-/* Styling the score */
 #score-container p {
     font-size: 24px;
     font-family: 'Arial', sans-serif;
@@ -92,7 +84,6 @@ body {
     margin-bottom: 10px;
 }
 
-/* New Game Button */
 #new-game-btn {
     padding: 12px 25px;
     background-color: #4CAF50;
